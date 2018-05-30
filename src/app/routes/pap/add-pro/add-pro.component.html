@@ -1,0 +1,91 @@
+<div class="container">
+    <h1>保函担保项目调查评价报告书</h1>
+    <div>
+        <nz-collapse>
+            <nz-collapse-panel nzHeader="爬虫要素（跟爬虫报告有关，请务必认真准确填写！）" nzActive=true nzShowArrow=false>
+                <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+                    <div nz-row nzGutter="16">
+                        <div nz-col class="gutter-row" nzSm="12" nzXs="24">
+                            <nz-form-item>
+                                <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="companyName">企业名称</nz-form-label>
+                                <nz-form-control [nzSm]="14" [nzXs]="24">
+                                    <input nz-input formControlName="companyName" id="companyName">
+                                    <nz-form-explain *ngIf="validateForm.get('companyName').dirty && validateForm.get('companyName').errors">此项不能为空</nz-form-explain>
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+
+                        <div nz-col class="gutter-row" nzSm="12" nzXs="24">
+                            <nz-form-item>
+                                <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="gtBeneficiaryName">保函受益人名称</nz-form-label>
+                                <nz-form-control [nzSm]="14" [nzXs]="24">
+                                    <input nz-input formControlName="gtBeneficiaryName" id="gtBeneficiaryName">
+                                    <nz-form-explain *ngIf="validateForm.get('gtBeneficiaryName').dirty && validateForm.get('gtBeneficiaryName').errors">此项不能为空</nz-form-explain>
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+
+                    </div>
+
+                    <div nz-row nzGutter="16">
+                        <div nz-col class="gutter-row" nzSm="12" nzXs="24">
+                            <nz-form-item>
+                                <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="legal_representative_Name">法人姓名</nz-form-label>
+                                <nz-form-control [nzSm]="14" [nzXs]="24">
+                                    <input nz-input formControlName="legal_representative_Name" id="legal_representative_Name">
+                                    <nz-form-explain *ngIf="validateForm.get('legal_representative_Name').dirty && validateForm.get('legal_representative_Name').errors">此项不能为空</nz-form-explain>
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+
+                        <div nz-col class="gutter-row" nzSm="12" nzXs="24">
+                            <nz-form-item>
+                                <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="legal_representative_ID">法人身份证号</nz-form-label>
+                                <nz-form-control [nzSm]="14" [nzXs]="24">
+                                    <input nz-input formControlName="legal_representative_ID" id="legal_representative_ID">
+                                    <nz-form-explain *ngIf="validateForm.get('legal_representative_ID').dirty && validateForm.get('legal_representative_ID').errors">此项不能为空</nz-form-explain>
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+
+                    </div>
+
+                    <div nz-row nzGutter="16">
+                        <div nz-col class="gutter-row" nzSm="12" nzXs="24">
+                            <nz-form-item>
+                                <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="projName">项目名称</nz-form-label>
+                                <nz-form-control [nzSm]="14" [nzXs]="24">
+                                    <input nz-input formControlName="projName" id="projName">
+                                    <nz-form-explain *ngIf="validateForm.get('projName').dirty && validateForm.get('projName').errors">此项不能为空</nz-form-explain>
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+
+                        <div nz-col class="gutter-row" nzSm="12" nzXs="24">
+                            <nz-form-item>
+                                <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired nzFor="engineeringCategory">工程类别</nz-form-label>
+                                <nz-form-control [nzSm]="14" [nzXs]="24">
+                                    <!-- <input nz-input formControlName="engineeringCategory" id="engineeringCategory"> -->
+                                    <nz-select nzShowSearch nzAllowClear nzPlaceHolder="请选择" formControlName="engineeringCategory" id="engineeringCategory">
+                                        <nz-option nzLabel="Jack" nzValue="jack"></nz-option>
+                                        <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>
+                                        <nz-option nzLabel="Tom" nzValue="tom"></nz-option>
+                                    </nz-select>
+                                    <nz-form-explain *ngIf="validateForm.get('engineeringCategory').dirty && validateForm.get('engineeringCategory').errors">此项不能为空</nz-form-explain>
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+
+                    </div>
+
+                    <nz-form-item nz-row style="margin-bottom:8px;">
+                        <nz-form-control [nzSpan]="14" [nzOffset]="6" style="text-align:center;">
+                            <button nz-button nzType="primary">保存</button>
+                        </nz-form-control>
+                    </nz-form-item>
+                </form>
+            </nz-collapse-panel>
+        </nz-collapse>
+    </div>
+
+</div>

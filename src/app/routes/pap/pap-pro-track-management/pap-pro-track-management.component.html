@@ -1,0 +1,62 @@
+<div class="content__title">
+    <nz-collapse>
+        <nz-collapse-panel nzHeader="后期跟踪管理担保项目列表" nzActive=true nzShowArrow=false>
+            <nz-table [nzScroll]="{x:'1300px'}" #borderedTable nzBordered [nzData]="dataSet" [nzShowTotal]="totalTemplate">
+                <thead>
+                    <tr>
+                        <th nzWidth="160px">项目编号</th>
+                        <th>平台</th>
+                        <th>项目名称</th>
+                        <th>企业名称</th>
+                        <th>受益人</th>
+                        <th>担保金额</th>
+                        <th>担保期限</th>
+                        <th>评分</th>
+                        <th nzWidth="300px">备注</th>
+                        <th>查看</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of borderedTable.data">
+                        <td>{{data.id}}</td>
+                        <td>
+                            <nz-tooltip [nzTitle]="data.pingtai" [nzPlacement]="'topLeft'">
+                                <span nz-tooltip>{{data.pingtai}}</span>
+                            </nz-tooltip>
+                        </td>
+                        <td>
+                            <nz-tooltip [nzTitle]="data.proName" [nzPlacement]="'topLeft'">
+                                <span nz-tooltip>{{data.proName}}</span>
+                            </nz-tooltip>
+                        </td>
+                        <td>
+                            <nz-tooltip [nzTitle]="data.company" [nzPlacement]="'topLeft'">
+                                <span nz-tooltip>{{data.company}}</span>
+                            </nz-tooltip>
+                        </td>
+                        <td>
+                            <nz-tooltip [nzTitle]="data.syr" [nzPlacement]="'topLeft'">
+                                <span nz-tooltip>{{data.syr}}</span>
+                            </nz-tooltip>
+                        </td>
+                        <td>{{data.money}}</td>
+                        <td>{{data.limit}}</td>
+                        <td>{{data.pingfen}}</td>
+                        <td>{{data.remark}}</td>
+                        <td>
+                            <!-- <nz-tooltip [nzTitle]="'审核'" [nzPlacement]="'top'">
+                                <i class="anticon anticon-eye" nz-tooltip></i>
+                            </nz-tooltip> -->
+                            <a [routerLink]="['/pap/auditReport',data.id]">
+                                <button nz-button [nzSize]="'small'" nzType="primary">审核</button>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </nz-table>
+            <ng-template #totalTemplate let-total let-range="range">
+                显示条目 {{range[0]}}-{{range[1]}} 共 {{total}} 条数据
+            </ng-template>
+        </nz-collapse-panel>
+    </nz-collapse>
+</div>

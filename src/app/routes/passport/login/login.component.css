@@ -1,0 +1,92 @@
+.container {
+  margin: 0;
+  height: 100%;
+  background: url("../../../../assets/Images/loginbcg.jpg") no-repeat;
+}
+p {
+  margin: 0;
+}
+.oa-bcg {
+  width: 806px;
+  height: 362px;
+  background: linear-gradient(to bottom right, #5676ff, #4f91f1);
+  border-radius: 6px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.oa-bcg img {
+  position: absolute;
+  top: 50%;
+  margin-top: -82.5px;
+}
+.oa-login {
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%);
+  margin-left: -36px;
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 0 35px 3px rgba(57, 57, 57, 0.06);
+}
+.oa-login .oa-logo {
+  text-align: center;
+  padding-top: 42px;
+  margin-bottom: 43px;
+}
+.oa-login .oa-content {
+  padding: 0 52px;
+}
+.oa-login .oa-content .oa-login-label {
+  font-size: 14px;
+  color: #494f5c;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+.oa-content .form-group {
+  margin-bottom: 24px;
+}
+.oa-content .form-group .form-control {
+  box-shadow: none;
+}
+.oa-content .err {
+  text-align: center;
+  color: #e01919;
+}
+.oa-content .form-group .login {
+  background: #4f91f1;
+  margin-top: 16px;
+  height: 42px;
+}
+.ant-form-vertical .ant-form-item-label,
+.ant-form-vertical .ant-form-item {
+  padding: 0;
+}
+.ant-input-group > .ant-input:last-child,
+.ant-input-group-addon:last-child {
+  border-radius: 5px;
+  padding: 6px 12px;
+  height: 34px;
+  color: #494f5c;
+}
+.remenber {
+  margin-bottom: 15px;
+  clear: both;
+}
+@media screen and (max-width: 768px) {
+  .oa-login .oa-logo {
+    padding-top: 36px;
+    margin-bottom: 36px;
+  }
+  .oa-login {
+    height: 438px;
+    width: 300px;
+    margin-left: -150px;
+  }
+  .oa-login .oa-content {
+    padding: 0 36px;
+  }
+}

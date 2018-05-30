@@ -1,0 +1,156 @@
+{
+    "app": {
+        "name": "国信保理",
+        "description": "国信保理后台系统"
+    },
+    "user": {
+        "name": "Admin",
+        "avatar": "./assets/Images/3.png",
+        "email": "cipchk@qq.com"
+    },
+    "menu": [{
+        "text": "首页",
+        "group": false,
+        "children": [{
+            "text": "首页",
+            "link": "/home",
+            "icon": "anticon anticon-appstore-o"
+        }]
+    }, {
+        "text": "非融资保函类",
+        "group": true,
+        "children": [{
+            "text": "履约、预付款项目",
+            "icon": "anticon anticon-rocket",
+            "children": [{
+                "text": "添加履约项目",
+                "link": "/pap/addPapPro"
+            }, {
+                "text": "所有履约项目列表",
+                "link": "/pap/allPapList"
+            }, {
+                "text": "已完成审批项目",
+                "link": "/pap/finishedPapList"
+            }, {
+                "text": "已出函项目",
+                "link": "/pap/letterPapList"
+            }, {
+                "text": "后期跟踪管理",
+                "link": "/pap/trackPapList"
+            }, {
+                "text": "未完成审批项目",
+                "link": "/pap/unfinishedPapList"
+            }, {
+                "text": "否决项目",
+                "link": "/pap/vetoPapList"
+            }, {
+                "text": "项目查询",
+                "link": "/pap/queryPapPro"
+            }, {
+                "text": "OA修改列表",
+                "link": "/pap/OaReviseList"
+            }, {
+                "text": "项目特批列表",
+                "link": "/pap/specialPapList"
+            }]
+        }, {
+            "text": "保理项目",
+            "icon": "anticon anticon-rocket",
+            "children": [{
+                "text": "添加保理项目",
+                "link": "/factoring/addFactoring"
+            }, {
+                "text": "所有保理项目列表",
+                "link": "/factoring/allFactoringList"
+            }, {
+                "text": "已完成审批项目",
+                "link": "/factoring/finishedFactoringList"
+            }, {
+                "text": "已出函项目",
+                "link": "/factoring/letterFactoringList"
+            }, {
+                "text": "后期跟踪管理",
+                "link": "/factoring/trackFactoringList"
+            }, {
+                "text": "未完成审批项目",
+                "link": "/factoring/unfinishedFactoringList"
+            }, {
+                "text": "否决项目",
+                "link": "/factoring/vetoFactoringList"
+            }, {
+                "text": "OA修改列表",
+                "link": "/factoring/OaReviseFactoringList"
+            }, {
+                "text": "项目特批列表",
+                "link": "/factoring/specialFactoringList"
+            }]
+        }]
+    }, {
+        "text": "待办事项",
+        "group": true,
+        "children": [{
+            "text": "风险待办",
+            "icon": "anticon anticon-rocket",
+            "children": [{
+                "text": "正负面名单",
+                "children": [{
+                    "text": "待审核",
+                    "link": "/todolist/positiveNegativeWaitAudit"
+                }]
+            }]
+        }, {
+            "text": "综合事务待办",
+            "icon": "anticon anticon-rocket",
+            "children": [{
+                "text": "请款申请",
+                "children": [{
+                    "text": "待审核",
+                    "link": "/todolist/comprehensiveAffairs/paymentRequest"
+                }]
+            }, {
+                "text": "请假申请",
+                "children": [{
+                    "text": "待审核",
+                    "link": "/todolist/comprehensiveAffairs/leaveApplication"
+                }]
+            }, {
+                "text": "出差申请",
+                "children": [{
+                    "text": "待审核",
+                    "link": "/todolist/comprehensiveAffairs/travelApplication"
+                }]
+            }, {
+                "text": "事项请示",
+                "children": [{
+                    "text": "待审核",
+                    "link": "/todolist/comprehensiveAffairs/matterInstruction"
+                }]
+            }]
+        }, {
+            "text": "业务待办",
+            "icon": "anticon anticon-rocket",
+            "children": [{
+                "text": "履约、预付款",
+                "children": [{
+                    "text": "待审核",
+                    "link": "/todolist/businessAgent/pap/toAudite"
+                }, {
+                    "text": "待特批",
+                    "link": "/todolist/businessAgent/pap/toApproval"
+                }, {
+                    "text": "待OA修改",
+                    "link": "/todolist/businessAgent/pap/toOaModify"
+                }]
+            }, {
+                "text": "投标",
+                "children": [{
+                    "text": "待审核",
+                    "link": "/todolist/businessAgent/bid/toAudit"
+                }, {
+                    "text": "待OA修改",
+                    "link": "/todolist/businessAgent/bid/toOaModify"
+                }]
+            }]
+        }]
+    }]
+}

@@ -1,0 +1,40 @@
+<div class="oa-bcg hidden-sm hidden-xs">
+    <img src="../../../../assets/Images/2.png" alt="">
+</div>
+<div class="oa-login">
+    <form nz-form [formGroup]="form" nzLayout="vertical" (ngSubmit)="submit()" role="form">
+        <!-- <nz-alert *ngIf="error" [nzType]="'error'" [nzMessage]="error" [nzShowIcon]="true" class="mb-lg"></nz-alert> -->
+        <div class="oa-logo">
+            <img src="../../../../assets/Images/OAlogo.png" alt="oa图标">
+        </div>
+        <div class="oa-content">
+            <nz-form-item class="form-group">
+                <nz-form-label class="oa-login-label">账号</nz-form-label>
+                <nz-form-control>
+                    <nz-input-group>
+                        <input nz-input formControlName="userName" placeholder="请输入账号">
+                    </nz-input-group>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item class="form-group">
+                <nz-form-label class="oa-login-label">密码</nz-form-label>
+                <nz-form-control>
+                    <nz-input-group>
+                        <input nz-input type="password" formControlName="password" placeholder="请输入密码">
+                    </nz-input-group>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item class="remenber">
+                <nz-col [nzSpan]="12">
+                    <label nz-checkbox formControlName="remember">记住密码</label>
+                </nz-col>
+            </nz-form-item>
+
+            <div class="err">{{error}}</div>
+
+            <nz-form-item class="form-group">
+                <button nz-button type="submit" nzType="primary" [nzLoading]="loading" class="ant-btn__block login">登录</button>
+            </nz-form-item>
+        </div>
+    </form>
+</div>

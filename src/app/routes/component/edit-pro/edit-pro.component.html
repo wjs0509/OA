@@ -1,0 +1,856 @@
+<div class="content__title">
+    <h1>保函担保项目调查评价报告书编辑</h1>
+    <div class="clearfix mb20">
+        <p class="pull-right">项目编号：GXPAP20181237</p>
+    </div>
+
+    <form nz-form id="commentForm" #f="ngForm" (ngSubmit)="onSubmit(f,$event)">
+
+        <!--企业整体概况-->
+        <nz-collapse>
+            <nz-collapse-panel nzHeader="企业整体概况" nzActive=true nzShowArrow=false>
+                <div nz-row [nzGutter]="16">
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="companyName">企业名称</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <input nz-input required [(ngModel)]="queryList.companyName" name="companyName" #companyName="ngModel">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="regCap">注册资本（万元）</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <input nz-input required [(ngModel)]="queryList.regCap" name="regCap">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+
+                <div nz-row [nzGutter]="16">
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="firmProperty">企业性质</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <nz-select nzShowSearch nzAllowClear nzPlaceHolder="请选择" required [(ngModel)]="queryList.firmProperty" name="firmProperty">
+                                    <nz-option nzLabel="上市公司" nzValue="上市公司"></nz-option>
+                                    <nz-option nzLabel="国有企业" nzValue="国有企业"></nz-option>
+                                    <nz-option nzLabel="股份制（含国有成分）" nzValue="股份制（含国有成分）"></nz-option>
+                                    <nz-option nzLabel="民营" nzValue="民营"></nz-option>
+                                </nz-select>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="firmTopAptitude">申请人最高资质</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <nz-select nzShowSearch nzAllowClear nzMode="multiple" nzPlaceHolder="请选择" required [(ngModel)]="queryList.firmTopAptitude" name="firmTopAptitude">
+                                    <nz-option nzLabel="特级" nzValue="特级"></nz-option>
+                                    <nz-option nzLabel="2个总承包一级以上" nzValue="2个总承包一级以上"></nz-option>
+                                    <nz-option nzLabel="总承包一级" nzValue="总承包一级"></nz-option>
+                                    <nz-option nzLabel="专业承包一级" nzValue="专业承包一级"></nz-option>
+                                    <nz-option nzLabel="总承包二级" nzValue="总承包二级"></nz-option>
+                                    <nz-option nzLabel="专业承包二级" nzValue="专业承包二级"></nz-option>
+                                    <nz-option nzLabel="总承包三级" nzValue="总承包三级"></nz-option>
+                                    <nz-option nzLabel="专业承包三级" nzValue="专业承包三级"></nz-option>
+                                    <nz-option nzLabel="无资质" nzValue="无资质"></nz-option>
+                                </nz-select>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+
+                <div nz-row [nzGutter]="16">
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="projAptitude">项目对应资质</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <nz-select nzShowSearch nzAllowClear nzPlaceHolder="请选择" required [(ngModel)]="queryList.projAptitude" name="projAptitude">
+                                    <nz-option nzLabel="特级" nzValue="特级"></nz-option>
+                                    <nz-option nzLabel="2个总承包一级以上" nzValue="2个总承包一级以上"></nz-option>
+                                    <nz-option nzLabel="总承包一级" nzValue="总承包一级"></nz-option>
+                                    <nz-option nzLabel="专业承包一级" nzValue="专业承包一级"></nz-option>
+                                    <nz-option nzLabel="总承包二级" nzValue="总承包二级"></nz-option>
+                                    <nz-option nzLabel="专业承包二级" nzValue="专业承包二级"></nz-option>
+                                    <nz-option nzLabel="总承包三级" nzValue="总承包三级"></nz-option>
+                                    <nz-option nzLabel="专业承包三级" nzValue="专业承包三级"></nz-option>
+                                    <nz-option nzLabel="无资质" nzValue="无资质"></nz-option>
+                                </nz-select>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+
+                <div nz-row [nzGutter]="16" class="text-center">
+                    <button nz-button nzType="primary" type="submit">开始爬虫</button>
+                </div>
+
+            </nz-collapse-panel>
+        </nz-collapse>
+
+        <!--保函要素与收费-->
+        <nz-collapse>
+            <nz-collapse-panel nzHeader="保函要素与收费" nzActive=true nzShowArrow=false>
+                <div nz-row [nzGutter]="16">
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="GtAmt">保函金额（元）</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <input nz-input required [(ngModel)]="queryList.GtAmt" name="GtAmt">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="gtType">保函种类</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <nz-select nzShowSearch nzAllowClear nzPlaceHolder="请选择" required [(ngModel)]="queryList.gtType" name="gtType">
+                                    <nz-option nzLabel="履约" nzValue="履约"></nz-option>
+                                    <nz-option nzLabel="预付" nzValue="预付"></nz-option>
+                                    <nz-option nzLabel="业主支付" nzValue="业主支付"></nz-option>
+                                    <nz-option nzLabel="农民工工资支付" nzValue="农民工工资支付"></nz-option>
+                                    <nz-option nzLabel="监理" nzValue="监理"></nz-option>
+                                    <nz-option nzLabel="供货" nzValue="供货"></nz-option>
+                                    <nz-option nzLabel="质量" nzValue="质量"></nz-option>
+                                </nz-select>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+
+                <div nz-row [nzGutter]="16">
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="gtTerm">保函期限</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <nz-select nzShowSearch nzAllowClear nzPlaceHolder="请选择" required [(ngModel)]="queryList.gtTerm" name="gtTerm">
+                                    <nz-option nzLabel="1个月" nzValue="1个月"></nz-option>
+                                    <nz-option nzLabel="2个月" nzValue="2个月"></nz-option>
+                                    <nz-option nzLabel="3个月" nzValue="3个月"></nz-option>
+                                    <nz-option nzLabel="4个月" nzValue="4个月"></nz-option>
+                                    <nz-option nzLabel="5个月" nzValue="5个月"></nz-option>
+                                    <nz-option nzLabel="6个月" nzValue="6个月"></nz-option>
+                                </nz-select>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="GtFormat">保函格式</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <nz-select nzShowSearch nzAllowClear nzPlaceHolder="请选择" required [(ngModel)]="queryList.GtFormat" name="GtFormat">
+                                    <nz-option nzLabel="可抗辩（原【有条件】格式统称为【可抗辩】）" nzValue="可抗辩（原【有条件】格式统称为【可抗辩】）"></nz-option>
+                                    <nz-option nzLabel="一般保证" nzValue="一般保证"></nz-option>
+                                    <nz-option nzLabel="见索即付" nzValue="见索即付"></nz-option>
+                                    <nz-option nzLabel="其他" nzValue="其他"></nz-option>
+                                </nz-select>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+
+                <div nz-row [nzGutter]="16">
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="gtDate">保函开具日</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <nz-date-picker required [nzDisabledDate]="disabledStartDate" [(ngModel)]="queryList.gtDate" name="gtDate" required [nzFormat]="'yyyy-MM-dd'"></nz-date-picker>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="gtMaturity">保函到期日</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <nz-date-picker required [nzDisabledDate]="disabledEndDate" [(ngModel)]="queryList.gtMaturity" name="gtDate" required [nzFormat]="'yyyy-MM-dd'"></nz-date-picker>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+
+                <div nz-row [nzGutter]="16">
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="bank">银行平台</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <nz-select nzShowSearch nzAllowClear nzPlaceHolder="请选择" required [(ngModel)]="queryList.bank" name="bank">
+                                    <nz-option nzLabel="深圳鼎业" nzValue="深圳鼎业"></nz-option>
+                                    <nz-option nzLabel="深圳浦发" nzValue="深圳浦发"></nz-option>
+                                    <nz-option nzLabel="深圳建行" nzValue="深圳建行"></nz-option>
+                                </nz-select>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="gtBeneficiaryName">保函受益人名称</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <input nz-input required [(ngModel)]="queryList.gtBeneficiaryName" name="gtBeneficiaryName">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+
+                <div nz-row [nzGutter]="16">
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="gtBeneficiary_province">保函受益人注册地址</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <nz-cascader required nzPlaceHolder="请选择省市区" [nzOptions]="options" [(ngModel)]="queryList.gtBeneficiary_province" name="gtBeneficiary_province">
+                                </nz-cascader>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-control [nzSm]="24" [nzXs]="24">
+                                <input nz-input required placeholder="请输入具体地址" [(ngModel)]="queryList.gtBeneficiary_address" name="gtBeneficiary_address">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+
+                <div nz-row [nzGutter]="16">
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="BeneficiaryAddress">保函受益人地址</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <input nz-input required [(ngModel)]="queryList.BeneficiaryAddress" name="BeneficiaryAddress">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="recommendByHuaAn">是否华安推荐项目</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <nz-select nzShowSearch nzAllowClear nzPlaceHolder="请选择" [(ngModel)]="queryList.recommendByHuaAn" name="recommendByHuaAn">
+                                    <nz-option nzLabel="否" nzValue="0"></nz-option>
+                                    <nz-option nzLabel="是" nzValue="1"></nz-option>
+                                </nz-select>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+
+                <div nz-row [nzGutter]="16">
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="totalPoundage">总收费金额（元）</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <input nz-input [(ngModel)]="queryList.totalPoundage" name="totalPoundage">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="companyPoundage">公司实际收费金额（元）</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <input nz-input [(ngModel)]="queryList.companyPoundage" name="companyPoundage">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+
+                <div nz-row [nzGutter]="16">
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="bankPoundage">银行手续费（元）</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <input nz-input required [(ngModel)]="queryList.bankPoundage" name="bankPoundage">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="bankCooperative">合作对象</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <nz-select nzShowSearch nzAllowClear nzPlaceHolder="请选择" required [(ngModel)]="queryList.bankCooperative" name="bankCooperative">
+                                    <nz-option nzLabel="建设银行" nzValue="建设银行"></nz-option>
+                                    <nz-option nzLabel="东莞银行" nzValue="东莞银行"></nz-option>
+                                </nz-select>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+
+                <div nz-row [nzGutter]="16">
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="marketingCosts">营销费用（元）</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <input nz-input [(ngModel)]="queryList.marketingCosts" name="marketingCosts">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+
+                <div nz-row [nzGutter]="16">
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-control [nzSm]="16" [nzOffset]="2" [nzXs]="24">
+                                <label nz-checkbox [(ngModel)]="queryList.needDeposits" name="needDeposits">
+                                    <span>是否需要保证金？</span>
+                                </label>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+
+                    <div nz-col [nzSm]="12" [nzXs]="24" *ngIf="queryList.needDeposits">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="deposits">保证金金额（元）</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <input nz-input required [(ngModel)]="queryList.deposits" name="deposits">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+
+                <div nz-row [nzGutter]="16">
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-control [nzSm]="16" [nzOffset]="2" [nzXs]="24">
+                                <label nz-checkbox [(ngModel)]="queryList.need_re_issue" name="need_re_issue">
+                                        <span>是否需要转开？</span>
+                                    </label>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+
+                <div *ngIf="queryList.need_re_issue">
+                    <div nz-row [nzGutter]="16">
+                        <div nz-col [nzSm]="12" [nzXs]="24">
+                            <nz-form-item>
+                                <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="re_issue_bank_Name">转开行名称</nz-form-label>
+                                <nz-form-control [nzSm]="16" [nzXs]="24">
+                                    <input nz-input required [(ngModel)]="queryList.re_issue_bank_Name" name="re_issue_bank_Name">
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+
+                        <div nz-col [nzSm]="12" [nzXs]="24">
+                            <nz-form-item>
+                                <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="reIssueBankAccountName">转开行户名</nz-form-label>
+                                <nz-form-control [nzSm]="16" [nzXs]="24">
+                                    <input nz-input required [(ngModel)]="queryList.reIssueBankAccountName" name="reIssueBankAccountName">
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                    </div>
+
+                    <div nz-row [nzGutter]="16">
+                        <div nz-col [nzSm]="12" [nzXs]="24">
+                            <nz-form-item>
+                                <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="reIssueBankAccountNo">转开行账号</nz-form-label>
+                                <nz-form-control [nzSm]="16" [nzXs]="24">
+                                    <input nz-input required [(ngModel)]="queryList.reIssueBankAccountNo" name="reIssueBankAccountNo">
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+
+                        <div nz-col [nzSm]="12" [nzXs]="24">
+                            <nz-form-item>
+                                <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="reIssueCost">转开费用（元）</nz-form-label>
+                                <nz-form-control [nzSm]="16" [nzXs]="24">
+                                    <input nz-input required [(ngModel)]="queryList.reIssueCost" name="reIssueCost">
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                    </div>
+
+                    <div nz-row [nzGutter]="16">
+                        <div nz-col [nzSm]="12" [nzXs]="24">
+                            <nz-form-item>
+                                <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="re_issue_bank_province">保函受益人注册地址</nz-form-label>
+                                <nz-form-control [nzSm]="16" [nzXs]="24">
+                                    <nz-cascader required nzPlaceHolder="请选择省市区" [nzOptions]="options" [(ngModel)]="queryList.re_issue_bank_province" name="re_issue_bank_province">
+                                    </nz-cascader>
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+
+                        <div nz-col [nzSm]="12" [nzXs]="24">
+                            <nz-form-item>
+                                <nz-form-control [nzSm]="24" [nzXs]="24">
+                                    <input nz-input required placeholder="请输入具体地址" [(ngModel)]="queryList.re_issue_bank_address" name="re_issue_bank_address">
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                    </div>
+
+                </div>
+            </nz-collapse-panel>
+        </nz-collapse>
+
+
+        <!-- 业务组别 -->
+        <nz-collapse>
+            <nz-collapse-panel nzHeader="业务组别" nzActive=true nzShowArrow=false>
+                <div nz-row [nzGutter]="16">
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="projBUserid">项目B角</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <input nz-input required [(ngModel)]="queryList.projBUserid" name="projBUserid">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="bus_expand_person_Userid">业务实际拓展人</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <input nz-input required [(ngModel)]="queryList.bus_expand_person_Userid" name="bus_expand_person_Userid">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+            </nz-collapse-panel>
+        </nz-collapse>
+
+        <!-- 企业基本情况 -->
+        <nz-collapse>
+            <nz-collapse-panel nzHeader="企业基本情况" nzActive=true nzShowArrow=false>
+                <div nz-row [nzGutter]="16">
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="busLicenceNo">营业执照编号</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <input nz-input required [(ngModel)]="queryList.busLicenceNo" name="busLicenceNo">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="orgCodeCertificate">组织机构代码证号</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <input nz-input required [(ngModel)]="queryList.orgCodeCertificate" name="orgCodeCertificate">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+
+                <div nz-row [nzGutter]="16">
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="register_location_province">注册所在地</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <nz-cascader required nzPlaceHolder="请选择省市区" [nzOptions]="options" [(ngModel)]="queryList.register_location_province" name="register_location_province">
+                                </nz-cascader>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-control [nzSm]="24" [nzXs]="24">
+                                <input nz-input required placeholder="请输入具体地址" [(ngModel)]="queryList.register_location_address" name="register_location_address">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+
+                <div nz-row [nzGutter]="16">
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="legal_representative_Name">法人姓名</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <input nz-input required [(ngModel)]="queryList.legal_representative_Name" name="legal_representative_Name">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="legal_representative_ID">法人身份证号</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <input nz-input required [(ngModel)]="queryList.legal_representative_ID" name="legal_representative_ID">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+
+                <div nz-row [nzGutter]="16">
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="establishment_date">成立日期</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <nz-date-picker required [(ngModel)]="queryList.establishment_date" name="establishment_date" required [nzFormat]="'yyyy-MM-dd'"></nz-date-picker>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="contactPhone">联系电话</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <input nz-input required [(ngModel)]="queryList.contactPhone" name="contactPhone">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+
+                <div nz-row [nzGutter]="16">
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="faxNumber">传真号码</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <input nz-input required [(ngModel)]="queryList.faxNumber" name="faxNumber">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="zipCode">邮编</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <input nz-input required [(ngModel)]="queryList.zipCode" name="zipCode">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+
+                <div nz-row [nzGutter]="16">
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="openBankName">开户银行名称</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <input nz-input required [(ngModel)]="queryList.openBankName" name="openBankName">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="openBankAccount">开户银行账号</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <input nz-input required [(ngModel)]="queryList.openBankAccount" name="openBankAccount">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+            </nz-collapse-panel>
+        </nz-collapse>
+
+        <!-- 企业股权结构 -->
+        <nz-collapse>
+            <nz-collapse-panel nzHeader="企业股权结构" nzActive=true nzShowArrow=false>
+                <div nz-row [nzGutter]="16">
+                    <div nz-col [nzSm]="24" [nzXs]="24">
+                        <nz-form-item>
+                            <button nz-button nzType="primary">添加出资人</button>
+                        </nz-form-item>
+                    </div>
+                </div>
+            </nz-collapse-panel>
+        </nz-collapse>
+
+        <!-- 财务信息 -->
+        <nz-collapse>
+            <nz-collapse-panel nzHeader="财务信息" nzActive=true nzShowArrow=false>
+                <div class="panel">先点击【查询】按钮来查询数据库中是否本企业有过往的财务信息：如果查到有，可以选择导入原有的财务信息，也可以点击【新增】按钮来添加新的财务报表信息。</div>
+                <div nz-row [nzGutter]="16">
+                    <div nz-col [nzSm]="24" [nzXs]="24">
+                        <nz-form-item>
+                            <button nz-button nzType="primary">查询</button>
+                            <button nz-button nzType="primary">新增</button>
+                        </nz-form-item>
+                    </div>
+                </div>
+            </nz-collapse-panel>
+        </nz-collapse>
+
+        <!-- 项目情况 -->
+        <nz-collapse>
+            <nz-collapse-panel nzHeader="项目情况" nzActive=true nzShowArrow=false>
+                <div nz-row [nzGutter]="16">
+                    <div nz-col [nzSm]="24" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="ownerSituation" nzRequired>业主情况</nz-form-label>
+                            <nz-form-control [nzSm]="20" [nzXs]="24">
+                                <textarea nz-input rows="6" required [(ngModel)]="queryList.ownerSituation" name="ownerSituation"></textarea>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+
+                <div nz-row [nzGutter]="16">
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="projName">项目名称</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <input nz-input required [(ngModel)]="queryList.projName" name="projName">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="projNature">项目性质</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <nz-select nzShowSearch nzAllowClear nzPlaceHolder="请选择" required [(ngModel)]="queryList.projNature" name="projNature">
+                                    <nz-option nzLabel="国家或省级财政" nzValue="国家或省级财政"></nz-option>
+                                    <nz-option nzLabel="市级财政" nzValue="市级财政"></nz-option>
+                                    <nz-option nzLabel="国有政府委托代建或专项资金" nzValue="国有政府委托代建或专项资金"></nz-option>
+                                    <nz-option nzLabel="国有企业，部分国有资金（其余银行贷款）" nzValue="国有企业，部分国有资金（其余银行贷款）"></nz-option>
+                                    <nz-option nzLabel="上市公司（国内）自筹" nzValue="上市公司（国内）自筹"></nz-option>
+                                    <nz-option nzLabel="外资企业（港澳台）自筹" nzValue="外资企业（港澳台）自筹"></nz-option>
+                                    <nz-option nzLabel="民营企业自筹" nzValue="民营企业自筹"></nz-option>
+                                    <nz-option nzLabel="东莞、深圳地铁" nzValue="东莞、深圳地铁"></nz-option>
+                                    <nz-option nzLabel="BT或BOT" nzValue="BT或BOT"></nz-option>
+                                </nz-select>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+
+                <div nz-row [nzGutter]="16">
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="sourcesFunds">资金来源</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <input nz-input required [(ngModel)]="queryList.sourcesFunds" name="sourcesFunds">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="timeLimit_Or_completionDate">工期或竣工日期</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <nz-date-picker required [(ngModel)]="queryList.timeLimit_Or_completionDate" name="timeLimit_Or_completionDate" required [nzFormat]="'yyyy-MM-dd'"></nz-date-picker>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+
+                <div nz-row [nzGutter]="16">
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="engLocation_province">工程所在地</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <nz-cascader required nzPlaceHolder="请选择省市区" [nzOptions]="options" [(ngModel)]="queryList.engLocation_province" name="engLocation_province">
+                                </nz-cascader>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-control [nzSm]="24" [nzXs]="24">
+                                <input nz-input required placeholder="请输入具体地址" [(ngModel)]="queryList.engLocation_address" name="engLocation_address">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+
+                <div nz-row [nzGutter]="16">
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="engineeringCategory" nzRequired>工程类别</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <nz-select nzShowSearch nzAllowClear nzPlaceHolder="请选择" required [(ngModel)]="queryList.engineeringCategory" name="engineeringCategory">
+                                    <nz-option nzLabel="房建" nzValue="房建"></nz-option>
+                                    <nz-option nzLabel="绿化" nzValue="绿化"></nz-option>
+                                </nz-select>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="bidEvaluationMethod" nzRequired>评标方式</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <nz-select nzShowSearch nzAllowClear nzPlaceHolder="请选择" required [(ngModel)]="queryList.bidEvaluationMethod" name="bidEvaluationMethod">
+                                    <nz-option nzLabel="抽签法" nzValue="抽签法"></nz-option>
+                                    <nz-option nzLabel="综合评标法" nzValue="综合评标法"></nz-option>
+                                </nz-select>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+
+                <div nz-row [nzGutter]="16">
+                    <div nz-col [nzSm]="6" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-control [nzSm]="16" [nzOffset]="2" [nzXs]="24">
+                                <label nz-checkbox [(ngModel)]="queryList.isOpenBidding" name="isOpenBidding">
+                                        <span>公开招标？</span>
+                                    </label>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+
+                    <div nz-col [nzSm]="18" [nzXs]="24" *ngIf="queryList.isOpenBidding">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="openBiddingURL" nzRequired>公开招标网址</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <input nz-input required [(ngModel)]="queryList.openBiddingURL" name="openBiddingURL">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+
+                <div nz-row [nzGutter]="16">
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="upperLimitPrice">上限价（元）</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <input nz-input [(ngModel)]="queryList.upperLimitPrice" name="upperLimitPrice">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="bidPrice">中标价（元）</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <input nz-input [(ngModel)]="queryList.bidPrice" name="bidPrice">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+
+                <div nz-row [nzGutter]="16">
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="bidDate">中标日期</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <nz-date-picker [(ngModel)]="queryList.bidDate" name="bidDate" required [nzFormat]="'yyyy-MM-dd'"></nz-date-picker>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+
+                <div nz-row [nzGutter]="16">
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="constructionContractNum">施工合同编号</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <input nz-input [(ngModel)]="queryList.constructionContractNum" name="constructionContractNum">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="constructionContractDate">施工合同签订日期</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <nz-date-picker [(ngModel)]="queryList.constructionContractDate" name="constructionContractDate" required [nzFormat]="'yyyy-MM-dd'"></nz-date-picker>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+
+                <div nz-row [nzGutter]="16">
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="contractPriceMethod">合同价方式</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <input nz-input [(ngModel)]="queryList.contractPriceMethod" name="contractPriceMethod">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="materialPriceAdjustment">材料价格调差</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <nz-select nzShowSearch nzAllowClear nzPlaceHolder="请选择" [(ngModel)]="queryList.materialPriceAdjustment" name="materialPriceAdjustment">
+                                    <nz-option nzLabel="5%" nzValue="5%"></nz-option>
+                                    <nz-option nzLabel="10%" nzValue="10%"></nz-option>
+                                    <nz-option nzLabel="15%" nzValue="15%"></nz-option>
+                                    <nz-option nzLabel="15%以上" nzValue="15%以上"></nz-option>
+                                    <nz-option nzLabel="没调差" nzValue="没调差"></nz-option>
+                                </nz-select>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+
+                <div nz-row [nzGutter]="16">
+                    <div nz-col [nzSm]="6" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-control [nzSm]="16" [nzOffset]="2" [nzXs]="24">
+                                <label nz-checkbox [(ngModel)]="queryList.has_projAdvancePayment" name="has_projAdvancePayment">
+                                            <span>有工程预付款？</span>
+                                        </label>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+
+                    <div nz-col [nzSm]="18" [nzXs]="24" *ngIf="queryList.has_projAdvancePayment">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="projAdvancePayment">预付款金额（元）</nz-form-label>
+                            <nz-form-control [nzSm]="16" [nzXs]="24">
+                                <input nz-input [(ngModel)]="queryList.projAdvancePayment" name="projAdvancePayment">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+
+                <div nz-row [nzGutter]="16">
+                    <div nz-col [nzSm]="24" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="progressPayment">工程进度款情况</nz-form-label>
+                            <nz-form-control [nzSm]="20" [nzXs]="24">
+                                <textarea nz-input rows="6" [(ngModel)]="queryList.progressPayment" name="progressPayment"></textarea>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+
+                <div nz-row [nzGutter]="16">
+                    <div nz-col [nzSm]="24" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="engineeringSurvey">工程概况</nz-form-label>
+                            <nz-form-control [nzSm]="20" [nzXs]="24">
+                                <textarea nz-input rows="6" [(ngModel)]="queryList.engineeringSurvey" name="engineeringSurvey"></textarea>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                </div>
+
+            </nz-collapse-panel>
+        </nz-collapse>
+
+        <!-- 担保措施 -->
+        <nz-collapse>
+            <nz-collapse-panel nzHeader="担保措施" nzActive=true nzShowArrow=false>
+                <div nz-row [nzGutter]="16">
+                    <div nz-col [nzSm]="12" [nzXs]="24">
+                        <nz-form-item>
+                            <nz-form-label [nzSm]="8" [nzXs]="24" nzFor="cgtCategory">反担保类别</nz-form-label>
+                            <nz-form-control [nzSm]="12" [nzXs]="24">
+                                <nz-select nzShowSearch nzAllowClear nzPlaceHolder="请选择" [(ngModel)]="queryList.cgtCategory" name="cgtCategory">
+                                    <nz-option nzLabel="个人" nzValue="个人"></nz-option>
+                                    <nz-option nzLabel="企业" nzValue="企业"></nz-option>
+                                    <nz-option nzLabel="无" nzValue="无"></nz-option>
+                                </nz-select>
+                            </nz-form-control>
+                            <button nz-button nzType="primary" style="margin-top: 4px;">新增</button>
+                        </nz-form-item>
+                    </div>
+                </div>
+            </nz-collapse-panel>
+        </nz-collapse>
+
+        <nz-row [nzGutter]="8" class="text-center">
+            <button nz-button nzType="primary">保存</button>
+            <button nz-button nzType="primary" type="submit">提交</button>
+        </nz-row>
+    </form>
+</div>

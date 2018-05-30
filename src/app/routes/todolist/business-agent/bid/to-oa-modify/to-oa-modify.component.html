@@ -1,0 +1,54 @@
+<div class="content__title">
+    <nz-collapse>
+        <nz-collapse-panel nzHeader="待审核的投标项目列表" nzActive=true nzShowArrow=false>
+            <nz-table [nzScroll]="{x:'1300px'}" #borderedTable nzBordered [nzData]="dataSet" [nzShowTotal]="totalTemplate">
+                <thead>
+                    <tr>
+                        <th nzWidth="140px">申请单编号</th>
+                        <th>项目名称</th>
+                        <th>项目名称</th>
+                        <th>OA修改类型</th>
+                        <th>OA修改轮次</th>
+                        <th>OA修改阶段</th>
+                        <th>提交人</th>
+                        <th>OA修改提交日期</th>
+                        <th nzWidth="160px">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of borderedTable.data">
+                        <td>{{data.id}}</td>
+                        <td>{{data.bank}}</td>
+                        <td>
+                            <nz-tooltip [nzTitle]="data.company" [nzPlacement]="'topLeft'">
+                                <span nz-tooltip>{{data.company}}</span>
+                            </nz-tooltip>
+                        </td>
+                        <td>
+                            <nz-tooltip [nzTitle]="data.proName" [nzPlacement]="'topLeft'">
+                                <span nz-tooltip>{{data.proName}}</span>
+                            </nz-tooltip>
+                        </td>
+                        <td>
+                            <nz-tooltip [nzTitle]="data.syr" [nzPlacement]="'topLeft'">
+                                <span nz-tooltip>{{data.syr}}</span>
+                            </nz-tooltip>
+                        </td>
+                        <td>{{data.limit}}</td>
+                        <td>{{data.money}}</td>
+                        <td>{{data.geshi}}</td>
+                        <td>
+                            <a [routerLink]="['/pap/auditReport',data.id]">
+                                <button nz-button [nzSize]="'small'" nzType="primary">审核</button>
+                            </a>
+                            <button nz-button [nzSize]="'small'" nzType="default">复制</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </nz-table>
+            <ng-template #totalTemplate let-total let-range="range">
+                显示条目 {{range[0]}}-{{range[1]}} 共 {{total}} 条数据
+            </ng-template>
+        </nz-collapse-panel>
+    </nz-collapse>
+</div>

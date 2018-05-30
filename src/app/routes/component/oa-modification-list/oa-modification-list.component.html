@@ -1,0 +1,60 @@
+<nz-table [nzScroll]="{x:'1300px'}" #borderedTable nzBordered [nzData]="dataSet" [nzShowTotal]="totalTemplate">
+    <thead>
+        <tr>
+            <th nzWidth="160px">项目编号</th>
+            <th>项目名称</th>
+            <th>企业名称</th>
+            <th>OA修改类型</th>
+            <th>OA修改轮次</th>
+            <th>OA修改阶段</th>
+            <th>风控初审意见</th>
+            <th>提交人</th>
+            <th nzWidth="200px">OA修改提交时间</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of borderedTable.data">
+            <td>
+                <nz-tooltip [nzTitle]="data.id" [nzPlacement]="'topLeft'">
+                    <span nz-tooltip>{{data.id}}</span>
+                </nz-tooltip>
+            </td>
+
+            <td>
+                <nz-tooltip [nzTitle]="data.company" [nzPlacement]="'topLeft'">
+                    <span nz-tooltip>{{data.company}}</span>
+                </nz-tooltip>
+            </td>
+            <td>
+                <nz-tooltip [nzTitle]="data.proName" [nzPlacement]="'topLeft'">
+                    <span nz-tooltip>{{data.proName}}</span>
+                </nz-tooltip>
+            </td>
+            <td>
+                <nz-tooltip [nzTitle]="data.oaReviseType" [nzPlacement]="'topLeft'">
+                    <span nz-tooltip>{{data.oaReviseType}}</span>
+                </nz-tooltip>
+            </td>
+            <td>{{data.oaReviseNum}}</td>
+            <td>{{data.oaReviseStage}}</td>
+            <td>{{data.fengkong}}</td>
+            <td>{{data.tjr}}</td>
+            <td>{{data.oaTime}}</td>
+            <td>
+                <!-- <nz-tooltip [nzTitle]="'提交'" [nzPlacement]="'top'">
+                        <i class="anticon anticon-export" nz-tooltip></i>
+                    </nz-tooltip> -->
+                <!-- <nz-tooltip [nzTitle]="'审核'" [nzPlacement]="'top'" [nzVisible]="showTooltip">
+                        <i class="anticon anticon-eye" nz-tooltip (click)='nzVisibleChange()'></i>
+                    </nz-tooltip> -->
+                <a [routerLink]="['/pap/auditReport',data.id]">
+                    <button nz-button [nzSize]="'small'" nzType="primary">审核</button>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</nz-table>
+<ng-template #totalTemplate let-total let-range="range">
+    显示条目 {{range[0]}}-{{range[1]}} 共 {{total}} 条数据
+</ng-template>

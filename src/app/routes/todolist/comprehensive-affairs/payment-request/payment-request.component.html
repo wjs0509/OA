@@ -1,0 +1,47 @@
+<div class="content__title">
+    <nz-collapse>
+        <nz-collapse-panel nzHeader="所有请款申请列表" nzActive=true nzShowArrow=false>
+            <nz-table [nzScroll]="{x:'1300px'}" #borderedTable nzBordered [nzData]="dataSet" [nzShowTotal]="totalTemplate">
+                <thead>
+                    <tr>
+                        <th nzWidth="140px">编号</th>
+                        <th nzWidth="80px">类别</th>
+                        <th>预算（元）</th>
+                        <th nzWidth="120px">实际费用（元）</th>
+                        <th>费用发生日期</th>
+                        <th>所属网点</th>
+                        <th>实际使用人</th>
+                        <th nzWidth="80px">经办人</th>
+                        <th>流程</th>
+                        <th>审核阶段</th>
+                        <th nzWidth="80px">提交人</th>
+                        <th>提交时间</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of borderedTable.data">
+                        <td>{{data.id}}</td>
+                        <td>{{data.type}}</td>
+                        <td>{{data.yusuan}}</td>
+                        <td>{{data.shijimoney}}</td>
+                        <td>{{data.fashengriqi}}</td>
+                        <td>{{data.suoshuwangdian}}</td>
+                        <td>{{data.shijisyr}}</td>
+                        <td>{{data.jbr}}</td>
+                        <td>{{data.liucheng}}</td>
+                        <td>{{data.shjd}}</td>
+                        <td>{{data.tjr}}</td>
+                        <td>{{data.tjtime}}</td>
+                        <td>
+                            <button nz-button [nzSize]="'small'" nzType="primary">审核</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </nz-table>
+            <ng-template #totalTemplate let-total let-range="range">
+                显示条目 {{range[0]}}-{{range[1]}} 共 {{total}} 条数据
+            </ng-template>
+        </nz-collapse-panel>
+    </nz-collapse>
+</div>

@@ -1,0 +1,47 @@
+<div class="content__title">
+    <nz-collapse>
+        <nz-collapse-panel nzHeader="已送银行待出函项目提示" nzActive=true nzShowArrow=false>
+            <nz-table [nzScroll]="{x:'1300px'}" #borderedTable nzBordered [nzData]="dataSet">
+                <thead>
+                    <tr>
+                        <th nzWidth="160px">项目编号</th>
+                        <th>银行平台</th>
+                        <th>申请企业</th>
+                        <th style="width:200px">项目名称</th>
+                        <th>种类</th>
+                        <th>担保金额</th>
+                        <th>审核阶段</th>
+                        <th>送银行人员</th>
+                        <th>送银行时间</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of borderedTable.data">
+                        <td>{{data.id}}</td>
+                        <td>{{data.bank}}</td>
+                        <td>{{data.company}}</td>
+                        <td>
+                            <nz-tooltip [nzTitle]="data.proName" [nzPlacement]="'topLeft'">
+                                <span nz-tooltip>{{data.proName}}</span>
+                            </nz-tooltip>
+                        </td>
+                        <td>{{data.type}}</td>
+                        <td>{{data.money}}</td>
+                        <td>{{data.level}}</td>
+                        <td>{{data.toBank}}</td>
+                        <td>{{data.toBankTime}}</td>
+                        <td>
+                            <!-- <nz-tooltip [nzTitle]="'审核'" [nzPlacement]="'top'">
+                                <i class="anticon anticon-eye" nz-tooltip></i>
+                            </nz-tooltip> -->
+                            <a [routerLink]="['/pap/auditReport',data.id]">
+                                <button nz-button [nzSize]="'small'" nzType="primary">审核</button>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </nz-table>
+        </nz-collapse-panel>
+    </nz-collapse>
+</div>
