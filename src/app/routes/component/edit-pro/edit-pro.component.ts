@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { _HttpClient } from '@delon/theme';
-import { ANY_STATE } from '../../../../../node_modules1/@angular/animations/browser/src/dsl/animation_transition_expr';
 
 @Component({
     selector: 'app-edit-pro',
